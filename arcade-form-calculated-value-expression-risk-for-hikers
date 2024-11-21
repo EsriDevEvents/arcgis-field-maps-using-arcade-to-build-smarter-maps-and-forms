@@ -1,0 +1,102 @@
+// specify the variables that will be used later
+var health_issue = $feature.tree_health_issue
+var proximity = $feature.proximity_to_street
+var leaning_angle = $feature.leaning
+var pest_severity = $feature.infestation_level
+
+/*
+The logic in prosa
+For erosion, cracks and ligthning strikes:
+If the tree health issue is erosion, cracks, ligthning strike and the proximity to the hiking trail is less than 3 meters, the risk for the hikers is very high
+If the tree health issue is erosion, cracks, ligthning strike and the proximity to the hiking trail is between 3 and 6 meters, the risk for the hikers is high
+If the tree health issue is erosion, cracks, ligthning strike and the proximity to the hiking trail is between 6 and 10 meters, the risk for the hikers is moderate
+If the tree health issue is erosion, cracks, ligthning strike and the proximity to the hiking trail is bigger than 10 meters, the risk for the hikers is low
+For pest:
+If the tree health issue is Pest and the pest severity is low, the risk fo the hiker is low
+If the tree health issue is Pest and the pest severity is moderate, the risk fo the hiker is low
+If the tree health issue is Pest and the pest severity is high and proximity to the hiking trail is bigger than 10 meters, the risk fo the hiker is low
+If the tree health issue is Pest and the pest severity is high and proximity to the hiking trail is between 6 and 10 meters, the risk fo the hiker is moderate
+If the tree health issue is Pest and the pest severity is high and proximity to the hiking trail is between 3 and 6 meters, the risk fo the hiker is high
+If the tree health issue is Pest and the pest severity is high and proximity to the hiking trail is less than 3 meters, the risk fo the hiker is very high
+For wind damage:
+If the tree health issue is wind damage and the proximity to the hiking trail is less than 3 meters, the risk for the hikers is very high
+If the tree health issue is wind damage and the proximity to the hiking trail is between 3 and 6 meters, the risk for the hikers is high
+If the tree health issue is wind damage and the proximity to the hiking trail is between 6 and 10 meters, the risk for the hikers is moderate
+If the tree health issue is wind damage and the proximity to the hiking trail is bigger than 10 meters, the risk for the hikers is low
+For Leaning:
+If the tree health issue is leaning and the leaning angle is less than 30°, the risk for the hikers is low
+If the tree health issue is leaning and the leaning angle is between 30° and 60° and the proximity to the hiking trail is bigger than 10 meters, the risk for the hikers is low
+If the tree health issue is leaning and the leaning angle is between 30° and 60° and the proximity to the hiking trail is between 6 and 10 meters, the risk for the hikers is moderate
+If the tree health issue is leaning and the leaning angle is between 30° and 60° and the proximity to the hiking trail is between 3 and 6 meters, the risk for the hikers is high
+If the tree health issue is leaning and the leaning angle is between 30° and 60° and the proximity to the hiking trail is less than 3 meters, the risk for the hikers is very high
+If the tree health issue is leaning and the leaning angle is bigger than 60° and the proximity to the hiking trail is bigger than 10 meters, the risk for the hikers is low
+If the tree health issue is leaning and the leaning angle is bigger than 60° and the proximity to the hiking trail is between 6 and 10 meters, the risk for the hikers is high
+If the tree health issue is leaning and the leaning angle is bigger than 60° and the proximity to the hiking trail is less than 6 meters, the risk for the hikers is very high
+For Fungal infection:
+The risk fo the hiker is low
+*/
+
+// Initialize default risk level as "low"
+var risk = "low"
+
+// Check for health issues and assign risk accordingly
+if (health_issue == "Erosion" || health_issue == "Cracks" || health_issue == "Lightning Strike") {
+    if (proximity < 3) {
+        risk = "very high"
+    } else if (proximity >= 3 && proximity < 6) {
+        risk = "high"
+    } else if (proximity >= 6 && proximity <= 10) {
+        risk = "moderate"
+    } else {
+        risk = "low"
+    }
+} else if (health_issue == "Pest") {
+    if (pest_severity == "high") {
+        if (proximity < 3) {
+            risk = "very high"
+        } else if (proximity >= 3 && proximity < 6) {
+            risk = "high"
+        } else if (proximity >= 6 && proximity <= 10) {
+            risk = "moderate"
+        } else {
+            risk = "low"
+        }
+    } else {
+        risk = "low"
+    }
+} else if (health_issue == "Wind Damage") {
+    if (proximity < 3) {
+        risk = "very high"
+    } else if (proximity >= 3 && proximity < 6) {
+        risk = "high"
+    } else if (proximity >= 6 && proximity <= 10) {
+        risk = "moderate"
+    } else {
+        risk = "low"
+    }
+} else if (health_issue == "Leaning") {
+    if (leaning_angle == "0-15" || leaning_angle == "15-30") {
+        risk = "low"
+    } else if (leaning_angle == "30-45" || leaning_angle == "45-60") {
+        if (proximity < 3) {
+            risk = "very high"
+        } else if (proximity >= 3 && proximity < 6) {
+            risk = "high"
+        } else if (proximity >= 6 && proximity <= 10) {
+            risk = "moderate"
+        } else {
+            risk = "low"
+        }
+    } else if (leaning_angle == ">60") {
+        if (proximity < 6) {
+            risk = "very high"
+        } else if (proximity >= 6 && proximity <= 10) {
+            risk = "high"
+        } else {
+            risk = "low"
+        }
+    }
+}
+
+// Return the risk level
+return risk
