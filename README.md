@@ -86,12 +86,17 @@ https://github.com/chgresri/arcgis-field-maps-using-arcade-to-build-smarter-maps
 The Arcade code can be found here:
 https://github.com/chgresri/arcgis-field-maps-using-arcade-to-build-smarter-maps-and-forms/blob/d57ada32295fcfdc59cea6c1095ea78c17ab91c5/arcade-form-calculated-value-expression-risk-for-hikers
 ### Group: Treatment Information
-This group has a switch-button attribute and a date attribute, which is calculated by the arcade expression: Now() and is only visible if the switch button is activated.
+This group has a switch-button attribute and a date attribute, which is calculated by the arcade expression: "Now()" and is only visible if the switch button is activated.
 ![image](https://github.com/user-attachments/assets/179baf74-5e4d-4c50-827b-dc8401b778cc)
 #### Conditional visibility:
 ![image](https://github.com/user-attachments/assets/bc5b1241-5502-4e59-8876-5abf5889aecd)
 The Arcade code can be found here:
 https://github.com/chgresri/arcgis-field-maps-using-arcade-to-build-smarter-maps-and-forms/blob/db35a0b54abe91776e4985d1623a18615ff7b77e/arcade-form-conditional-visibility-treatment-information-group-treatment-date
-
-
-
+## Geofences in Field Maps Designer
+### Location Notification:
+![image](https://github.com/user-attachments/assets/b82e1032-5f1c-4c7e-9a6c-1541d358139e)
+### Location Sharing:
+![image](https://github.com/user-attachments/assets/986ec576-5e1e-49fa-b12f-2e8003c4e661)
+#### Arcade expression for conditional Location Sharing:
+![image](https://github.com/user-attachments/assets/1d08b7bb-e179-402d-9e11-aa3b7c8e6ff1)
+The only Arcade code part the was added is: " && Hour(Now()) <= 9 && Hour(Now()) > 17".
