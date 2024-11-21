@@ -1,0 +1,17 @@
+// define the variables
+var treated = $feature.treatment_state
+var street = FeatureSetByName($map, "Highway")
+var color = ""
+
+// define the color based on if the observed tree is within 10 meters from the highway or not
+if (treated == "No") {
+  when(Count(Intersects(Buffer($feature, 50, "meters"), street))>0,
+  color = "#3CB043",
+  color = "#FF0000"
+  )
+} else {
+  color = "#808080"
+}
+
+// return the defined color
+return color
