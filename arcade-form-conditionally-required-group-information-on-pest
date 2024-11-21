@@ -1,0 +1,5 @@
+if(!IsEmpty($feature["pest_type"])) {
+  return true
+} else {
+  return false
+}
