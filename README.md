@@ -1,1 +1,2 @@
 # arcgis-field-maps-using-arcade-to-build-smarter-maps-and-forms
+Mobile workflows can be streamlined and made smarter by combining ArcGIS Field Maps with Arcade. This session will focus on the how Arcade can be used within the map to provide an intuitive experience when exploring data and how it can be used to configure smart forms for data capture. As well as showing examples the session will also share advanced Arcade patterns and best practices for use in the Field.
