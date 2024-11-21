@@ -3,5 +3,5 @@ Mobile workflows can be streamlined and made smarter by combining ArcGIS Field M
 ## Symbolgy with Arcade
 ![image](https://github.com/user-attachments/assets/5ac2e081-f0be-4c1f-928a-e4ca08b9d8b8)
 ![image](https://github.com/user-attachments/assets/af6faa70-6640-4e19-bda4-02b0fd6ad311)
-The Arcade-code for the in the symbology used expression can be found here:
+The Arcade-code for the in the symbology used expression can be found here: arcade-symbology
 ## Label with Arcade
