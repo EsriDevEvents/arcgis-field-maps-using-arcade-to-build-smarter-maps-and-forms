@@ -1,0 +1,11 @@
+// set variables to be used in the when statement
+var treated = $feature.treatment_state
+var risk = $feature.risk_for_hikers
+
+// when-logic to define new values, which will be used to color the symbols accordingly
+when(
+  treated == "No" && risk == "moderate", "Priority: Medium",
+  treated == "No" && risk == "high", "Priority: Medium/High",
+  treated == "No" && risk == "very high", "Priority: High",
+  "Priority: Low"
+)
