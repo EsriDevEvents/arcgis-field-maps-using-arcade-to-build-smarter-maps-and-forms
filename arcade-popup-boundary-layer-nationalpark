@@ -1,0 +1,4 @@
+var intersectTrees = Intersects(FeatureSetByName($map, "Tree Health Observation"), $feature)
+var health_issue = "Erosion"
+var newValue = Count(Filter(intersectTrees, "tree_health_issue = @health_issue"))
+return Number(newValue)
