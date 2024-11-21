@@ -1,0 +1,11 @@
+// Define the variables
+var treated = $feature.treatment_state
+var treetype = $feature.tree_type
+var health_issue = $feature.tree_health_issue
+
+// Define the text to be returned in the label based on if the observed tree has been treated or not
+if(treated == "No") {
+  return treetype + TextFormatting.NewLine + health_issue + TextFormatting.NewLine + "No Treatment"
+} else {
+  return treetype + TextFormatting.NewLine + health_issue + TextFormatting.NewLine + "Treated"
+}
