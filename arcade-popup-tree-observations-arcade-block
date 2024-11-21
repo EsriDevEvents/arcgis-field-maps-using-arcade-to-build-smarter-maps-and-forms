@@ -1,0 +1,21 @@
+// define the variables
+var treated = $feature.treatment_state
+var risk = $feature.risk_for_hikers
+var text = ''
+
+// Define the text to be returned depending the risk for hikers and the treatmend state
+if(treated == "No") {
+  when(risk == "low", text = "<p>The risk for hikers emerging from this <b>" + $feature.tree_type + "</b> with health issues of the type <b>" + $feature.tree_health_issue + "</b> is <b>low</b> and its treatment can be scheduled at a later stage.</p>",
+  risk == "moderate", text = "<p>The risk for hikers emerging from this <b>" + $feature.tree_type + "</b> with health issues of the type <b>" + $feature.tree_health_issue + "</b> is <b>moderate</b> and its treatment should soon be scheduled.</p>",
+  risk == "high", text = "<p>The risk for hikers emerging from this <b>" + $feature.tree_type + "</b> with health issues of the type <b>" + $feature.tree_health_issue + "</b> is <b>high</b> and its treatment should be scheduled for the next days.</p>",
+  text = "<p>The risk for hikers emerging from this <b>" + $feature.tree_type + "</b> with health issues of the type <b>" + $feature.tree_health_issue + "</b> is <b>very high</b> and should be treated immediatly.</p>"
+  )
+} else {
+  text = "<p>This <b>" + $feature.tree_type + "</b> has been treated and is no longer a risk for the hikers in this area.</p>"
+}
+
+// return the defined text
+return {
+	type: 'text',
+	text: text 
+}
