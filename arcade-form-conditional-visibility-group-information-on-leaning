@@ -1,0 +1,5 @@
+if (DomainName($feature, "tree_health_issue") == "Leaning") {
+  return true
+} else {
+  return false
+}
