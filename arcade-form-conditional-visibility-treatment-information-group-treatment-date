@@ -1,0 +1,5 @@
+if(DomainName($feature, "treatment_state") == "Yes") {
+  return true
+} else {
+  return false
+}
