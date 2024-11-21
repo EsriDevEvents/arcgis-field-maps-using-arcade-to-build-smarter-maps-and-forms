@@ -1,0 +1,30 @@
+// Define variables
+var proximity = 5
+var leaning_angle = $feature.leaning
+var risk = 'low'
+
+// Create logic
+if (leaning_angle == "0-15" || leaning_angle == "15-30") {
+  risk = "low"
+  } else if (leaning_angle == "30-45" || leaning_angle == "45-60") {
+    if (proximity < 3) {
+      risk = "very high"
+      } else if (proximity >= 3 && proximity < 6) {
+        risk = "high"
+        } else if (proximity >= 6 && proximity <= 10) {
+          risk = "moderate"
+          } else {
+            risk = "low"
+            }
+    } else if (leaning_angle == ">60") {
+      if (proximity < 6) {
+        risk = "very high"
+        } else if (proximity >= 6 && proximity <= 10) {
+          risk = "high"
+          } else {
+            risk = "low"
+            }
+    }
+
+// return the caluclate risk
+return risk
